@@ -16,8 +16,8 @@
 		</thead>
 		<tbody>
     		<tr>
-    		{% for attr in attributes.values %}
-        	<td>{{ attr }}</td>
+    		{% for tweet in results[1:] %}
+        	<td>{{ tweet }}</td>
     		{% endfor %}
     		</tr>
 		</tbody>
