@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<title>Table Results</title>
+</head>
+<body>
+	<div id="table">
+		<table border=0>
+		<thead>
+    		<tr>
+    		{% for header in results[0] %}
+       		<th>{{ header }}</th>
+    		{% endfor %}
+    		</tr>
+		</thead>
+		<tbody>
+    		<tr>
+    		{% for attr in attributes.values %}
+        	<td>{{ attr }}</td>
+    		{% endfor %}
+    		</tr>
+		</tbody>
+		</table>
+	</div>
+</body>
+</html>
