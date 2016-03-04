@@ -1,5 +1,4 @@
 from .scripts import hashtagfinder
-from .scripts import tweetRetriever
 from django.shortcuts import redirect,render
 
 def index(request):
@@ -8,16 +7,15 @@ def index(request):
 
 def search(request):
     user_input = request.POST['user_hashtag_input']
-    request.session['list_of_tweets'] = tweetRetriever.tweetRetriever(user_input);
+    request.session['list_of_hashtags'] = hashtagfinder.hashtagfinder(user_input);
     return redirect('/results/')
 
 def results(request):
-    fulltweets = request.session['list_of_tweets']
-    tweets = []
-    for t in fulltweets:
-    	tweets.append(t['tweet'])
-    return render(request, 'twitterscraper/results.html', {'tweet':tweets})
+    hashtags = request.session['list_of_hashtags']
+    return render(request, 'twitterscraper/results.html', {'hashtags':hashtags})
 
-def tableresults(request):
-	results = request.session['list_of_tweets']
-	return render(request, 'twitterscraper/tableresults.html', {'results':results})
+def details(request):
+	results = request.session['list_of_hashtags']
+	user_selected_word = request.POST['user_selected_word']
+	details_list = [result for result in results if user_selected_word in result]
+	return render(request, 'twitterscraper/details.html', {'details_list':details_list})
