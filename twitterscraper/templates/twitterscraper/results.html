@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search Results</title>
+    <title>Title</title>
 </head>
 <body>
-	<a href="/tableresults/">Table Results</a>
-    {% for w in tweet %}
-        <h1>{{ w }}</h1>
+	<form method="POST" action="/details/">
+		<input name="user_selected_word" id="id_new_item"
+        placeholder="Enter a word to test"/>
+       	{% csrf_token %}
+   	</form>
+    {% for w in hashtags %}
+        <h1>#{{ w }}</h1>
     {% endfor %}
 </body>
 </html>
