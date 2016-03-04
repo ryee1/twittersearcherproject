@@ -1,4 +1,5 @@
 from .scripts import hashtagfinder
+from .scripts import Tweet
 from django.shortcuts import redirect,render
 
 def index(request):
@@ -13,3 +14,7 @@ def search(request):
 def results(request):
     hashtags = request.session['list_of_hashtags']
     return render(request, 'twitterscraper/results.html', {'hashtags':hashtags})
+
+def tableresults(request):
+	results = request.session['list_of_hashtags']
+	return render(request, 'twitterscraper/tableresults.html', {'hashtags':results})
