@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Search Results</title>
 </head>
 <body>
-    {% for w in hashtags %}
-        <h1>#{{ w }}</h1>
+	<a href="/tableresults/">Table Results</a>
+    {% for w in tweet %}
+        <h1>{{ w }}</h1>
     {% endfor %}
 </body>
 </html>

@@ -9,15 +9,19 @@
 		<table border=0>
 		<thead>
     		<tr>
-    		{% for header in results[0] %}
-       		<th>{{ header }}</th>
-    		{% endfor %}
+    		<th>Username<th>
+    		<th>Date<th>
+    		<th>Tweet<th>
     		</tr>
 		</thead>
 		<tbody>
     		<tr>
-    		{% for tweet in results[1:] %}
-        	<td>{{ tweet }}</td>
+    		{% for tweet in results %}
+    		<tr>
+        	<td>{{ tweet.username }}</td>
+        	<td>{{ tweet.date }}</td>
+        	<td>{{ tweet.tweet }}</td>
+        	</tr>
     		{% endfor %}
     		</tr>
 		</tbody>
