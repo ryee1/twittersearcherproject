@@ -10,8 +10,9 @@
         placeholder="Enter a word to test"/>
        	{% csrf_token %}
    	</form>
-    {% for w in hashtags %}
-        <h1>#{{ w }}</h1>
+	<a href="/tableresults/">Table Results</a>
+    {% for w in tweet %}
+        <h1>{{ w }}</h1>
     {% endfor %}
 </body>
 </html>
