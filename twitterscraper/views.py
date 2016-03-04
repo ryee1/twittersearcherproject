@@ -6,7 +6,9 @@ def index(request):
 
 def search(request):
     user_input = request.POST['user_hashtag_input']
-    request.session['list_of_tweets'] = tweetRetriever.tweetRetriever(user_input);
+    list_of_tweets = tweetRetriever.tweetRetriever(user_input)
+    request.session['list_of_tweets'] = list_of_tweets
+
     return redirect('/results/')
 
 def results(request):
@@ -23,5 +25,5 @@ def tableresults(request):
 def details(request):
 	results = request.session['list_of_tweets']
 	user_selected_word = request.POST['user_selected_word']
-	details_list = [result['tweet'] for result in results if user_selected_word in result['tweet']]
+	details_list = [result['tweet'] for result in results if user_selected_word in result['tweet'].split()]
 	return render(request, 'twitterscraper/details.html', {'details_list':details_list})
