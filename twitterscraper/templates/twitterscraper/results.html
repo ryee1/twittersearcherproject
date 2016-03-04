@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body onload="init()">
+
+    <div id="clouder">
+
+    </div>
 	<form method="POST" action="/details/">
 		<input name="user_selected_word" id="id_new_item"
         placeholder="Enter a word to test"/>
@@ -15,4 +19,5 @@
         <h1>{{ w }}</h1>
     {% endfor %}
 </body>
+
 </html>
