@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body onload="init()">
-
-    <div id="clouder">
-
-    </div>
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
+{#    <div id="clouder">#}
+{##}
+{#    </div>#}
 	<form method="POST" action="/details/">
 		<input name="user_selected_word" id="id_new_item"
         placeholder="Enter a word to test"/>
        	{% csrf_token %}
    	</form>
 	<a href="/tableresults/">Table Results</a>
-    {% for w in tweet %}
-        <h1>{{ w }}</h1>
-    {% endfor %}
-</body>
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Tweet
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for w in tweet %}
+            <tr>
+                    <td>{{ w }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-</html>
+
+{% endblock %}
