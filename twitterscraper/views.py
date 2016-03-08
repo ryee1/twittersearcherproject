@@ -15,7 +15,10 @@ def results(request):
     fulltweets = request.session['list_of_tweets']
     tweets = []
     for t in fulltweets:
-    	tweets.append(t['tweet'])
+    	for word in t['tweet'].split():	
+	    	if not word.isalnum():
+	    		continue
+    		tweets.append(word)
     return render(request, 'twitterscraper/results.html', {'tweet':tweets})
 
 def tableresults(request):
