@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="POST" action="/details/">
-        <input name="user_selected_word" id="id_new_item"
+	<form method="POST" action="/details/">
+		<input name="user_selected_word" id="id_new_item"
         placeholder="Enter a word to test"/>
-        {% csrf_token %}
-    </form>
-    <a href="/tableresults/">Table Results</a>
+       	{% csrf_token %}
+   	</form>
+	<a href="/tableresults/">Table Results</a>
+  <a href="/count/">Count</a>
     {% for w in tweet %}
         <h1>{{ w }}</h1>
     {% endfor %}
