@@ -30,3 +30,14 @@ def details(request):
 	user_selected_word = request.POST['user_selected_word']
 	details_list = [result['tweet'] for result in results if user_selected_word in result['tweet'].split()]
 	return render(request, 'twitterscraper/details.html', {'details_list':details_list})
+
+def count(request):
+    fulltweets = request.session['list_of_tweets']
+    tweets = []
+    alltweets = []
+    word_count = dict()
+    for t in fulltweets:
+        tweets.append(t['tweet'])
+    alltweets = combine_tweets.combine_tweets(tweets)
+    word_count = count_words.count_words(alltweets)
+    return render(request, 'twitterscraper/count.html', {'word_count':word_count})
