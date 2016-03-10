@@ -1,10 +1,17 @@
 <html>
 {% include "twitterscraper/header.html" %}
-<body  onload="init()">
+<body onload="init()">
+<div id="wrap">
+    <div id="main" class="container clear-top">
+        {% block body_block %}
 
-{% block body_block %}
-
-{% endblock %}
+        {% endblock %}
+    </div>
+</div>
 
 </body>
+
+{% include "twitterscraper/footer.html" %}
+
+
 </html>
