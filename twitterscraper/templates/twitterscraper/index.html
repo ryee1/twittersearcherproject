@@ -6,12 +6,13 @@
             <div class="text-center">
             
                 <h1>Twitter Searcher</h1>
-                <form method="POST" action="/search/">
+                <form name="searchForm" method="POST" action="/search/" onsubmit="return validateForm()">
                     <input name="user_hashtag_input" id="id_new_item"
                            class="form-control input-lg"
                            placeholder="Enter a #hashtag"/>
                     {% csrf_token %}
                 </form>
+
              </div> 
         </div>
     </div>
