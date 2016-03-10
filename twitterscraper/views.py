@@ -10,7 +10,7 @@ def search(request):
     user_input = request.POST['user_hashtag_input']
     list_of_tweets = tweetRetriever.tweetRetriever(user_input)
     request.session['list_of_tweets'] = list_of_tweets
-    request.session['words'] = "yo"
+    request.session['words'] = []
     return redirect('/results/')
 
 def results(request):
