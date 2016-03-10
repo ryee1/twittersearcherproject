@@ -29,7 +29,7 @@ def results(request):
         text = request.session['words']
         text = text.replace(filtered_word, "")
     request.session['words'] = text
-    return render(request, 'twitterscraper/results.html',)
+    return render(request, 'twitterscraper/results.html', {'results':fulltweets})
 
 def tableresults(request):
 	results = request.session['list_of_tweets']
