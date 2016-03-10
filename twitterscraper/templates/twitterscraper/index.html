@@ -1,36 +1,10 @@
-<html>
-<style>
-table, th, td {
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    font-variant: normal;
-    font-family: Arial;
-    text-align:center;
-    padding: 10;
-}
-#background{
-    background-color: #019FE9;
-    color: white;
-    font-variant: normal;
-    font-family: Arial;
-    text-align:center;
-    padding: 10;
-}
-</style>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Twitter Searcher!!!!!!!!!!!!!!!!!</title>
-    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/base.css" rel="stylesheet">
-</head>
-<body>
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 jumbotron">
+        <div class="col-md-4 col-md-offset-3 jumbotron">
             <div class="text-center">
+            
                 <h1>Twitter Searcher</h1>
                 <form method="POST" action="/search/">
                     <input name="user_hashtag_input" id="id_new_item"
@@ -38,9 +12,8 @@ table, th, td {
                            placeholder="Enter a #hashtag"/>
                     {% csrf_token %}
                 </form>
-            </div> 
+             </div> 
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock %}

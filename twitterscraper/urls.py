@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^tableresults/$', views.tableresults, name='tableresults'),
     url(r'^details/$', views.details, name='details'),
     url(r'^count/$', views.count, name='count'),
+    url(r'^getwordcloud/$', views.getwordcloud, name='getwordcloud'),
 ]

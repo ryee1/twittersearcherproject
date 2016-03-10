@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-	<form method="POST" action="/details/">
-		<input name="user_selected_word" id="id_new_item"
-        placeholder="Enter a word to test"/>
-       	{% csrf_token %}
-   	</form>
-	<a href="/tableresults/">Table Results</a>
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
+<script>"init()"</script>
+
+<img src="/getwordcloud/" align="middle" style="width:1000px;height:800px;">
+</div>
+  <form method="POST" action="/details/">
+    <input name="user_selected_word" id="id_new_item"
+        placeholder="Word Details"/>
+        {% csrf_token %}
+    </form>
+      <form method="POST" action="/result/">
+    <input name="user_filtered_word" id="id_filtered_item"
+        placeholder="Word Filter"/>
+        {% csrf_token %}
+    </form>
+  <a href="/tableresults/">Table Results</a>
+
   <a href="/count/">Count</a>
     {% for w in tweet %}
-        <h1>{{ w }}</h1>
+        
     {% endfor %}
-</body>
-</html>
+
+
+{% endblock %}

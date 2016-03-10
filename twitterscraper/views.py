@@ -1,5 +1,7 @@
 from .scripts import tweetRetriever
 from django.shortcuts import redirect,render
+from wordcloud import WordCloud
+from django.http import HttpResponse
 
 def index(request):
     return render(request, 'twitterscraper/index.html')
@@ -19,7 +21,9 @@ def results(request):
 	    	if not word.isalnum():
 	    		continue
     		tweets.append(word)
-    return render(request, 'twitterscraper/results.html', {'tweet':tweets})
+    wordcloud = WordCloud().generate("cccc cccc dddd nononono")
+    image = wordcloud.to_image()
+    return render(request, 'twitterscraper/results.html', {'tweet':tweets, 'wordcloud':wordcloud})
 
 def tableresults(request):
 	results = request.session['list_of_tweets']
@@ -41,3 +45,19 @@ def count(request):
     alltweets = combine_tweets.combine_tweets(tweets)
     word_count = count_words.count_words(alltweets)
     return render(request, 'twitterscraper/count.html', {'word_count':word_count})
+
+def getwordcloud(request):
+    fulltweets = request.session['list_of_tweets']
+    tweets = []
+    for t in fulltweets:
+        for word in t['tweet'].split(): 
+            if not word.isalnum():
+                continue
+            tweets.append(word)
+    text = ' '.join(tweets)
+    text = text.replace("RT", "")
+    wordcloud = WordCloud().generate(text)
+    image = wordcloud.to_image()
+    response = HttpResponse(content_type="image/png")
+    image.save(response, "PNG")
+    return response
