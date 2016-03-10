@@ -45,5 +45,7 @@ function createTags() {
     elems.push({text: "Psi", id: "700", weight: 1.0});
     elems.push({text: "Omega", id: "800", weight: 1.0});
     elems.push({text: "Tsy", id: "900", weight: 1.0});
-    return elems;
-} // createTags
+=======
+        tags: createTags(word)
+    });
+} // init
