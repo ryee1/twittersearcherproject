@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'twitterscraper/index.html')
 
 def search(request):
-    user_input = request.POST['user_hashtag_input']
+    user_input = request.POST.get('user_hashtag_input')
     list_of_tweets = tweetRetriever.tweetRetriever(user_input)
     request.session['list_of_tweets'] = list_of_tweets
     request.session['words'] = []
