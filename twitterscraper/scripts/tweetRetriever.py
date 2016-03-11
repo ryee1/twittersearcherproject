@@ -16,7 +16,7 @@ def tweetRetriever(word):
 	for r in results['statuses']:
 		t = r['created_at']
 		date = t[3:10] + " " +  t[25:]
-		temp = {'username':r['user']['screen_name'], 'date':date , 'tweet':r['text'], 'picture_url':r['user']['profile_image_url_https'], 'name':r['user']['name']}
+		temp = {'username':r['user']['screen_name'], 'date':date , 'tweet':r['text'], 'picture_url':r['user']['profile_image_url_https'], 'name':r['user']['name'], 'id':r['id']}
 		tweets.append(temp)
 	return tweets
 
