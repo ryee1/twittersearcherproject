@@ -1,4 +1,6 @@
 from .scripts import tweetRetriever
+from .scripts import combine_tweets
+from .scripts import count_words
 from django.shortcuts import redirect,render
 from wordcloud import WordCloud
 from django.http import HttpResponse
