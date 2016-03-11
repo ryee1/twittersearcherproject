@@ -1,24 +1,32 @@
 {% extends "twitterscraper/base.html" %}
 {% block body_block %}
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             {% for w in details_list %}
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <img src="{{ w.picture_url }}" class="img-responsive img-rounded" alt="Responsive image">
-                        </div>
-                        <div class="col-md-3">
-                            <div class="row">
-                                {{ w.name }}
+                <div class="row panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-3">
+                                    <img src="{{ w.picture_url }}" class="img-responsive img-rounded"
+                                         style="width: 48px; height: 48px;"
+                                         alt="Responsive image">
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        {{ w.name }}
+                                    </div>
+                                    <div class="row">
+                                        @{{ w.username }}
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="row">
-                                @{{ w.username }}
-                            </div>
                         </div>
+                        {{ w.tweet }}
+                        {{ w.user.profile_image_url }}
                     </div>
-                    {{ w.tweet }}
-                    {{ w.user.profile_image_url }}
+
                 </div>
             {% endfor %}
         </div>
