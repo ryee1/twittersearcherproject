@@ -41,7 +41,7 @@ def tableresults(request):
 def details(request):
 	results = request.session['list_of_tweets']
 	user_selected_word = request.POST.get('user_selected_word')
-	details_list = [result['tweet'] for result in results if user_selected_word in result['tweet'].split()]
+	details_list = [result for result in results if user_selected_word in result['tweet'].split()]
 	return render(request, 'twitterscraper/details.html', {'details_list':details_list})
 
 def count(request):
