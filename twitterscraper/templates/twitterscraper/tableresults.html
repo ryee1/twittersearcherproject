@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
 <style>
     #tablethtd {
         border: 1px solid black;
@@ -35,8 +37,8 @@
         <thead>
         <tr>
             <th>Username</th>
-            <th>Date
-            <th>Tweet
+            <th>Date</th>
+            <th>Tweet</th>
         </tr>
         </thead>
         <tbody>
@@ -53,4 +55,5 @@
 
 
 </body>
+{% endblock %}
 </html>
