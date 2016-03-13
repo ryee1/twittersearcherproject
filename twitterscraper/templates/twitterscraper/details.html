@@ -1,4 +1,6 @@
 <html lang="en">
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +19,15 @@
         padding: 10;
     }
 </style>
-{% for w in details_list %}
-    <h1 id="background">#{{ w }}</h1>
-{% endfor %}
+
+<div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    {% for w in details_list %}
+                      <h5 id="background">#{{ w }}</h5>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock %}
 </html>
