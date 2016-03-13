@@ -12,22 +12,52 @@
 
     #background {
         background-color: #019FE9;
-        color: white;
+        color: black;
         font-variant: normal;
         font-family: Arial;
         text-align: left;
         padding: 10;
     }
 </style>
+<body id = "background">
+<div class="container" style = "background-color:white;font-family: Arial;">
 
-<div class="container">
-            <div class="row">
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div class="row">
+  <div class="span6">
+  <td>         
+<div class="row">
                 <div class="col-xs-4 col-sm-4 col-md-4">
                     {% for w in details_list %}
-                      <h5 id="background">#{{ w }}</h5>
+                      <h5>#{{ w }}</h5>
+                    {% endfor %}
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    {% for w in details_list %}
+                      <h5>#{{ w }}</h5>
+                    {% endfor %}
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    {% for w in details_list %}
+                      <h5>#{{ w }}</h5>
                     {% endfor %}
                 </div>
             </div>
         </div>
+       </td>
+     </div>
+    </tr>
+  </tbody>
+</table>
+</body>
+
+</body>
 {% endblock %}
 </html>
