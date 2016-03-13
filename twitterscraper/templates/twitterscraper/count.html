@@ -1,8 +1,46 @@
 {% extends "twitterscraper/base.html" %}
 {% block body_block %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Count</title>
+</head>
+<style>
+
+    #background {
+        background-color: #019FE9;
+        color: black;
+        font-variant: normal;
+        font-family: Arial;
+        text-align: left;
+        padding: 10;
+    }
+</style>
+<body id = "background">
+<table class="table table-sm" style="background-color: white;color: black;">
+  <thead>
+    <tr>
+      <th># Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div class="row">
+  <div class="span6">
+  <td>         
     <ul>
         {% for key, value in word_count.items %}
             <li>{{ key }} : {{ value }}</a></li>
         {% endfor %}
-    </ul>
+       </ul>
+       </td>
+     </div>
+    </tr>
+  </tbody>
+</table>
+</body>
+
 {% endblock %}
