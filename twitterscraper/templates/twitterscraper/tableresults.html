@@ -1,60 +1,38 @@
-<!DOCTYPE html>
-<html lang='en'>
-<style>
-#tablethtd {
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    font-variant: normal;
-    font-family: Arial;
-    text-align:center;
-    padding: 10;
-}
-#background{
-    background-color: #019FE9;
-    color: white;
-    font-variant: normal;
-    font-family: Arial;
-    text-align:center;
-    padding: 10;
-}
-</style>
-<head >
-	<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<title>Table Results</title>
-</head>
-<body >
+{% extends "twitterscraper/base.html" %}
+{% block body_block %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {% for w in results %}
+                <div class="row panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="https://twitter.com/{{ w.username }}">
+                                    <img src="{{ w.picture_url }}" class="img-rounded img-responsive"
+                                         style="width: 48px; height: 48px;"
+                                         alt="Responsive image">
 
-<div class="container">         
-  <table class="table table-striped">
-        <thead>
-            <tr>
-            <th>Username<th>
-            <th>Date<th>
-            <th>Tweet<th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for tweet in results %}
-            <tr>
-            <td>{{ tweet.username }}</td>
-            <td>{{ tweet.date }}</td>
-            <td >{{ tweet.tweet }}</td>
-            </tr>
+                                </a>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    {{ w.name }}
+                                </div>
+                                <div class="row">
+                                    @{{ w.username }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="https://twitter.com/{{ w.username }}/status/{{ w.id }}">{{ w.tweet }}</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             {% endfor %}
-        </tbody>
-        </table>
+        </div>
     </div>
-
-
-
-
-
-
-
-</body>
-</html>
+{% endblock %}
